@@ -1,5 +1,5 @@
-# VOD Market Intelligence: Benchmarking Strategii Katalogowych
-### Analiza Porównawcza Bibliotek VOD: Amazon Prime, Disney+, HBO Max i Netflix
+# Analiza Porównawcza Bibliotek Streamingowych: Netflix, HBO Max, Disney+ i Amazon Prime
+### Badanie jakości, wyłączności i struktury treści na próbie 20 500 produkcji
 
 **Tech Stack:** `Python (pandas)` | `SQL (DuckDB OLAP)` | `Power BI` | `DAX` | `Microsoft Excel`
 
@@ -21,24 +21,24 @@ Analiza bazuje na twardych metadanych katalogowych obejmujących pełną populac
 > **Podstawa analityczna:** Poniższe wnioski stanowią syntezę wyników **15 zapytań analitycznych SQL** ([`sql/queries.sql`](sql/queries.sql)) wykonanych na relacyjnej bazie w silniku DuckDB skryptem [`scripts/run_queries.py`](scripts/run_queries.py). Kompletne zestawienie danych wyeksportowano do raportu [`reports/vod_analysis_report.xlsx`](reports/vod_analysis_report.xlsx).
 
 ### Amazon Prime Video
-* **Skala kosztem wizerunku:** Amazon posiada niemal połowę badanego rynku (48.03%, 9 868 tytułów), z czego 86.25% to filmy. Aż 47.90% ocenionego katalogu (3 288 pozycji) to segment niski (IMDb < 6.0), a średnia filmów wynosi zaledwie 5.76.
-* **Praktyka pompowania bazy tanim kontentem:** Najczęstsi reżyserzy w bibliotece to Joseph Kane (41 filmów, średnia 5.93) i Sam Newfield (38 filmów, średnia 5.26) – twórcy westernów klasy B z lat 30. i 40. XX wieku. Amazon sztucznie powiększa wolumen pozycjami z domeny publicznej o zerowym koszcie.
-* **Zapaść gatunkowa i pasywny katalog:** Kluczowy dla platformy gatunek Thriller (1 101 tytułów) notuje słabą średnią 5.49. Ponadto aż 30.44% całego katalogu (3 004 tytuły) to treści martwe – bez wiarygodnej próbki 100 ocen na IMDb.
-* **Licencje zewnętrzne jako tarcza:** Tytuły dzielone z rynkiem notują wyższą średnią niż własne (6.78 vs 5.91, $\Delta = -0.86$), ratując odbiór jakościowy platformy.
+* **Skala kosztem wizerunku:** Amazon posiada największy wolumen badanych katalogów (48.03%, 9 868 pozycji), z czego 86.25% to filmy. Aż 47.90% ocenionego katalogu (3 288 pozycji) to segment niski (IMDb < 6.0), a średnia filmów wynosi zaledwie 5.76.
+* **Praktyka pompowania bazy tanim kontentem:** Najczęstsi reżyserzy w bibliotece to Joseph Kane (41 filmów, średnia 5.93) i Sam Newfield (38 filmów, średnia 5.26) – twórcy westernów klasy B z lat 30. i 40. XX wieku. Amazon powiększa wolumen pozycjami z domeny publicznej o znikomym koszcie licencyjnym.
+* **Zapaść gatunkowa i niska rozpoznawalność:** Kluczowy dla platformy gatunek Thriller (1 101 tytułów) notuje słabą średnią 5.49. Ponadto aż 30.44% całego katalogu (3 004 tytuły) to treści o marginalnej rozpoznawalności – poniżej progu 100 ocen na IMDb.
+* **Licencje zewnętrzne jako tarcza jakościowa:** Tytuły dzielone z konkurencją notują wyższą średnią niż pozycje na wyłączność (6.78 vs 5.91, $\Delta = -0.86$). Wynika to z efektu selekcji rynkowej – licencjonowane są tytuły sprawdzone i pożądane przez wielu dystrybutorów.
 
 ### HBO Max
 * **Najwyższa jakość w branży:** HBO Max wygrywa w obu formatach (filmy: 6.77, seriale: 7.30). Blisko jedna trzecia katalogu (32.03%, 855 tytułów) to segment Premium (IMDb $\ge$ 7.5), a pozycje słabe to zaledwie 17.01%.
 * **Trwały cykl życia seriali:** Średnia liczba sezonów per serial wynosi 3.00 (najwięcej na rynku). HBO buduje lojalność widzów na wieloletnich markach, unikając pochopnego kasowania tytułów.
-* **Profil autorski i monetyzacja dorosłych:** Czołowym reżyserem jest Charlie Chaplin (22 tytuły, średnia 7.86). Treści dla dojrzałego widza (R oraz TV-MA) stanowią łącznie 43.51% oferty, osiągając najwyższą satysfakcję (średnia TV-MA: 7.44).
+* **Profil autorski i monetyzacja dorosłych:** Czołowym reżyserem jest Charlie Chaplin (22 tytuły, średnia 7.86). Treści dla dojrzałego widza (filmy R oraz seriale TV-MA) stanowią łącznie 27.84% oferty, przy czym autorskie seriale dla dorosłych (TV-MA) osiągają najwyższą satysfakcję w bibliotece (średnia 7.44).
 
 ### Netflix
-* **Seriale jako rdzeń powracalności:** Netflix posiada najwyższy udział seriali na rynku (36.00%, 2 106 tytułów). Ponieważ format odcinkowy systemowo notuje wyższe noty niż filmy (na Netflixie: 7.00 vs 6.26), stanowi najsilniejszy czynnik stabilizujący nawyk subskrypcji.
-* **Koszt wczesnego anulowania projektów:** Średnia długość serialu wynosi jedynie 2.16 sezonu (najmniej w branży). Algorytmiczne kasowanie projektów po 1–2 sezonach pozwala ciąć koszty, lecz obniża długofalową wartość biblioteki.
-* **Fabryka taśmowej komedii:** Dominacja twórców stand-upów (Raúl Campos – 20 tytułów, Jan Suter – 19 tytułów, Ryan Polito – 17 tytułów) zapewnia stały dopływ taniego, premierowego materiału.
-* **Najwyższa aktywność widowni:** Aż 83.79% oferty posiada zweryfikowane oceny widzów (rekord zaangażowania bazy).
+* **Seriale jako rdzeń powracalności:** Netflix posiada najwyższy udział seriali w ofercie (36.00%, 2 106 tytułów). Ponieważ format odcinkowy systemowo notuje wyższe noty niż filmy (na Netflixie: 7.00 vs 6.26), stanowi najsilniejszy czynnik stabilizujący nawyk subskrypcji.
+* **Dynamika premier a długość serii:** Średnia długość serialu wynosi 2.16 sezonu (wobec 3.00 na HBO Max). Wynika to zarówno z polityki szybkiego anulowania projektów po 1–2 sezonach, jak i faktu, że aż 52.7% seriali Netfliksa w badanej próbie to produkcje świeże (wydane w latach 2019–2022), które nie zdążyły jeszcze rozwinąć wielosezonowych narracji.
+* **Fabryka taśmowej komedii:** Dominacja twórców stand-upów (Raúl Campos – 20 tytułów, Jan Suter – 19 tytułów, Ryan Polito – 17 tytułów) zapewnia stały dopływ relatywnie taniego, premierowego materiału.
+* **Wysokie pokrycie ocenami:** Aż 83.79% oferty posiada zweryfikowaną próbkę ocen widzów na IMDb (rekord zaangażowania bazy).
 
 ### Disney+
-* **Hermetyczna wyłączność:** 99.35% oferty to tytuły na wyłączność (zaledwie 10 współdzielonych z rynkiem). Jako jedyna platforma notuje odwróconą deltę jakości – produkcje własne oceniane są wyżej niż licencje zewnętrzne (6.58 vs 6.38, $\Delta = +0.20$).
+* **Hermetyczna wyłączność:** 99.35% oferty to tytuły na wyłączność (zaledwie 10 współdzielonych z rynkiem w badanej próbie). Z uwagi na małą próbę tytułów licencjonowanych (10 pozycji), wskaźnik delty jakościowej traktowany jest jako pomocniczy wgląd w politykę IP Disneya.
 * **Filar edukacyjny National Geographic:** Najliczniejszym pojedynczym gatunkiem jest Dokument (301 pozycji, średnia 7.13), przewyższający Komedię (299) i Animację (236, średnia 6.80).
 * **Bariera demograficzna:** Ponad 68% katalogu to pozycje familijne, a treści dla dorosłych (TV-MA) to marginalne 6 tytułów (0.39%). Średni czas trwania filmu wynosi zaledwie 72.12 minuty ze względu na olbrzymi zasób klasycznych krótkich metraży (m.in. Wilfred Jackson – 22 tytuły, John Lasseter – 17 tytułów).
 
@@ -49,16 +49,16 @@ Analiza bazuje na twardych metadanych katalogowych obejmujących pełną populac
 > **Wniosek Główny:** Projektując własną usługę streamingową, należy całkowicie zrezygnować z rywalizacji na wolumen z Amazonem czy uniwersalności z Netfliksem. Optymalnym kierunkiem jest profilowana platforma jakościowa zagospodarowująca luki rynkowe pozostawione przez liderów.
 
 * **1. Sztywny próg selekcji jakościowej (Model selektywny)**  
-  Doświadczenie Amazona dowodzi, że tani wolumen obniża prestiż i tworzy martwy katalog (30.44% pozycji nieoglądanych). Własna platforma powinna wdrożyć sztywny próg selekcji (np. IMDb $\ge 6.5$), opierając się na wzorcu HBO Max – mniejsza, starannie wyselekcjonowana baza buduje wyższy wskaźnik lojalności niż tysiące przeciętnych pozycji.
+  Doświadczenie Amazona dowodzi, że tani wolumen obniża prestiż i tworzy katalog o niskiej uwadze widzów (30.44% pozycji poniżej progu 100 ocen). Własna platforma powinna wdrożyć sztywny próg selekcji (np. IMDb $\ge 6.5$), opierając się na wzorcu HBO Max – mniejsza, starannie wyselekcjonowana baza buduje wyższy wskaźnik lojalności niż tysiące przeciętnych pozycji.
 
-* **2. Format serialowy oparty na zamkniętych narracjach**  
-  Seriale są niezbędne do utrzymania subskrypcji (oceny wyższe o 0.5–1.4 pkt IMDb niż filmy). Zamiast powielać frustrującą dla widzów politykę Netfliksa (masowe kasowanie po 2. sezonie; średnia 2.16), optymalną strategią jest promowanie domkniętych miniseriali oraz z góry zaplanowanych formatów 2–3 sezonowych (standard HBO Max).
+* **2. Format serialowy oparty na domkniętych narracjach**  
+  Seriale są niezbędne do stabilizowania retencji (oceny wyższe o 0.7–1.4 pkt IMDb niż filmy). Zamiast powielać model taśmowej rotacji i kasowania tytułów po krótkim cyklu, optymalną strategią dla nowej platformy autorskiej jest promowanie domkniętych miniseriali oraz z góry zaplanowanych formatów 2–3 sezonowych (standard HBO Max).
 
-* **3. Zagospodarowanie luki kina dojrzałego i autorskiego**  
-  Disney+ jest całkowicie zablokowany wizerunkowo w kategorii familijnej (< 1% treści dla dorosłych), a Amazon oferuje treści gatunkowe (np. thrillery) o bardzo niskiej nocie (5.49). Ponieważ segment TV-MA osiąga najwyższą średnią ocen w badaniu (7.44), stanowi idealną niszę rynkową dla profilowanego serwisu stawiającego na ambitne kino gatunkowe i autorskie.
+* **3. Zagospodarowanie luki kina i serialu autorskiego dla dojrzałego widza**  
+  Disney+ jest zablokowany wizerunkowo w kategorii familijnej (<1% treści dla dorosłych), a Amazon notuje zapaść jakościową w thrillerach (5.49). Ponieważ format odcinkowy dla dojrzałego widza (seriale TV-MA na HBO Max: 7.44) osiąga najwyższą satysfakcję w badaniu, stanowi to naturalną niszę dla profilowanego serwisu stawiającego na bezkompromisowe produkcje festiwalowe i ambitne miniseriale.
 
 * **4. Wykorzystanie licencji zewnętrznych jako katalizatora startowego**  
-  Budowa rozpoznawalności wymaga czasu. Zewnętrzne licencje na sprawdzone klasyki filmowe pozwalają natychmiast uwiarygodnić katalog (na Amazonie licencje podnoszą średnią ocen aż o 0.86 pkt względem produkcji wyłącznych).
+  Budowa rozpoznawalności wymaga czasu. Zewnętrzne licencje na sprawdzone klasyki filmowe pozwalają natychmiast uwiarygodnić katalog (na Amazonie selekcja licencyjna osiąga średnią 6.78 vs 5.91 dla wyłącznych). Na wczesnym etapie rozwoju zakup nieekskluzywnych praw do klasyków pozwala taniej zbudować zaufanie odbiorców niż kosztowne produkcje własne.
 
 ---
 
@@ -67,7 +67,15 @@ Analiza bazuje na twardych metadanych katalogowych obejmujących pełną populac
 W ramach przygotowania bazy analitycznej wdrożono kluczowe decyzje :
 
 * **Inżynieria Cech (Feature Engineering):** Wdrożono flagę wyłączności katalogowej `is_exclusive`, ustandaryzowano brakujące kategorie wiekowe do formatu `Unrated / Not Specified` oraz zastosowano próg wiarygodności statystycznej `has_valid_rating` (`imdb_votes >= 100`), zabezpieczający wnioski przed zaburzeniem przez pozycje o incydentalnych ocenach.
-* **Integralność relacyjna 1:N:** Model danych oparto na relacji jeden-do-wielu poprzez unikalny klucz `id`, łączący tabelę metadanych `vod_titles_cleaned.csv` (20 547 wierszy) ze znormalizowaną tabelą obsady `vod_credits_cleaned.csv` (294 785 wierszy), eliminując ryzyko powstawania iloczynów kartezjańskich w zapytaniach SQL.
+* **Integralność relacyjna 1:N i klucz złożony:** Model danych w Power BI oraz zapytaniach SQL oparto na relacji jeden-do-wielu z wykorzystaniem klucza złożonego `(id, platform)` łączącego tabelę metadanych `vod_titles_cleaned.csv` (20 547 wierszy) ze znormalizowaną tabelą obsady `vod_credits_cleaned.csv` (294 785 wierszy). Zabezpiecza to model przed błędami kardynalności wynikającymi z faktu, że 233 tytuły występują równolegle na więcej niż jednej platformie ze wspólnym identyfikatorem źródłowym.
+
+### Założenia Metodologiczne i Ograniczenia Badania (Data Limitations)
+
+1. **Podaż vs Oglądalność:** Badanie analizuje strukturę podaży katalogowej oraz percepcję ocen widzów (IMDb), a nie wewnętrzną oglądalność (*hours watched* / minuty odtworzeń), które serwisy streamingowe chronią tajemnicą handlową.
+2. **Horyzont Czasowy Danych:** Zbiór stanowi reprezentatywny zrzut katalogów zebrany do 2022 roku. Projekt realizowany jest retrospektywnie jako studium przypadku (*case study*) wejścia nowej usługi na rynek.
+3. **Zamknięte Uniwersum Rynku:** Wskaźnik wyłączności (`is_exclusive`) zdefiniowano w ramach badanego uniwersum 4 globalnych liderów SVOD. Tytuł „wyłączny” oznacza brak dostępności u bezpośrednich konkurentów w badanej populacji.
+4. **Efekt Świeżości Serii (Cenzurowanie Prawostronne):** Aż 52.7% seriali Netfliksa w próbie zostało wydanych w latach 2019–2022, co naturalnie obniża średnią liczbę sezonów z uwagi na krótki czas obecności na rynku.
+5. **Specyfika katalogu Disney+:** Disney opiera się niemal w całości na własnych markach, dlatego w badanej bazie zaledwie 10 tytułów pojawia się również u konkurencji. Ze względu na tak małą próbę, różnice w ocenach między produkcjami własnymi a licencjonowanymi należy interpretować z dużą ostrożnością.
 
 ### Układ Katalogów Projektu
 
@@ -127,7 +135,7 @@ Pulpit diagnostyczno-operacyjny umożliwiający szczegółową dekompozycję str
 ![Analiza Oferty i Gatunków](reports/screenshots/dashboard_page2_deep_dive.png)
 
 #### Wnioski Decyzyjne dla Projektu Nowej Platformy:
-* **Zagospodarowanie próżni kina dojrzałego (TV-MA / R):** Treści dla dorosłych generują najwyższe zadowolenie na rynku (średnia 7.44 IMDb). Disney+ posiada w nim barierę wizerunkową (<1% oferty), a Amazon notuje zapaść jakościową w thrillerach (5.49). **Rekomendacja:** Skupienie oferty na bezkompromisowym kinie festiwalowym i dojrzałym pozwala uniknąć bezpośredniej walki z Disneyem o widza familijnego.
+* **Zagospodarowanie próżni kina i serialu dojrzałego (TV-MA / R):** Autorskie seriale dla dorosłych osiągają najwyższe oceny jakościowe (HBO Max TV-MA: 7.44 IMDb). Disney+ posiada w treściach dorosłych barierę wizerunkową (<1% oferty), a Amazon notuje zapaść jakościową w thrillerach (5.49). **Rekomendacja:** Skupienie oferty na bezkompromisowym kinie autorskim i dojrzałych miniserialach pozwala uniknąć bezpośredniej walki z Disneyem o widza familijnego.
 * **Zakup licencji zewnętrznych jako katalizatora zaufania:** Tabela tytułów demaskuje, że hity najwyższej próby (*Inception* 8.8, *Titanic* 7.9) są licencjami współdzielonymi (flaga `Wyłączność = Fałsz`). **Rekomendacja:** Na etapie wejścia na rynek 30–40% budżetu należy przeznaczyć na licencje niewyłączne sprawdzonych klasyków (lata 1970–2005), które natychmiast uwiarygadniają katalog taniej niż produkcja własna.
 * **Dynamika premier a walka o nisze (Case Study: Animacja):** Choć Disney+ uchodzi za synonim animacji, analiza osi czasu demaskuje zaskakującą asymetrię: aż 48% animacji Disneya to pozycje sprzed 2000 r. (od 2018 r. dodano zaledwie 25 nowości). W tym samym czasie Netflix – odpowiadając na wycofanie licencji przez Disneya – wypuścił aż 194 nowe animacje (głównie seriale i anime), przejmując świeżą widownię. **Rekomendacja:** Postrzegana dominacja lidera gatunkowego bywa złudzeniem opartym na archiwum; nowa platforma może wygrać niszowy segment regularnością świeżych, autorskich premier.
 
@@ -139,8 +147,8 @@ Pulpit diagnostyczno-operacyjny umożliwiający szczegółową dekompozycję str
 
 ### 1. Przygotowanie środowiska
 ```bash
-git clone https://github.com/Kuba954/streaming-market-benchmarking.git
-cd streaming-market-benchmarking
+git clone https://github.com/Kuba-Januszewski/katalogi-vod-analiza.git
+cd katalogi-vod-analiza
 
 python -m venv venv
 # Windows:
